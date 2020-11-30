@@ -1,0 +1,323 @@
+﻿<Window x:Class="Pokemon_IV_Breeding_Probability_Calculator.WpfFAQ"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokemon_IV_Breeding_Probability_Calculator"
+        mc:Ignorable="d"
+        Title="FAQ" Height="1080" Width="1920">
+    <Grid>
+        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
+            <MenuItem Header="Calculator" Height="20" Width="80" Click="Mnucalculator_Click"/>
+            <MenuItem Header="FAQ" Height="20" Width="40" IsEnabled="False"/>
+            <MenuItem Header="Close" Height="20" Width="80" Click="MnuClose_Click"/>
+        </Menu>
+        <StatusBar HorizontalAlignment="Left" Height="79" Margin="20,960,0,0" VerticalAlignment="Top" Width="1892"/>
+        <StackPanel HorizontalAlignment="Left" Height="940" Margin="20,20,0,0" VerticalAlignment="Top" Width="1892">
+            <Label x:Name="lbl_titel" Content="FAQ" HorizontalAlignment="Left" Height="60" Width="1912" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Margin="0,0,-20,0"/>
+            <TextBlock x:Name="txtBlockFAQ" TextWrapping="Wrap" Text="" Height="880" FontFamily="Times New Roman">
+                <Run FontWeight="Bold"> What does this calculator do?</Run>
+                <LineBreak></LineBreak>
+                <Run>It calculates the probability of hatching a certain "Goal" IV spread, given 2 Parent IV spreads. The check-marks represent perfect IVs. This calculator only works in Generations 6+, where the Destiny Knot is used to pass 5IVs from both parents. </Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">Who is this calculator for?</Run>
+                <LineBreak></LineBreak>
+                <Run>This calculator is generally for people who already know how to IV breed. It can help IV breeders in their decision-making process by providing exact probabilities. If you don't know how to IV breed, there are many guides out there if you search for them, </Run> 
+                <Hyperlink NavigateUri="https://www.smogon.com/forums/threads/breeding-perfect-pokemon-in-pokemon-x-y.3490432/">
+                  this one.
+                </Hyperlink>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">What are the modifiers?</Run>
+                <LineBreak></LineBreak>
+                <Run>Often times, people breed for a certain gender, ability, or for shiny Pokemon. When going for specific things like these, a "modifier" is applied to the result after the IV spread probability is calculated.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run>For example, if you want a 6IV female Charmander, but don't care about its ability or shininess, you would:</Run>
+                <LineBreak></LineBreak>
+                <Run>-Check mark the IVs of the parents</Run>
+                <LineBreak></LineBreak>
+                 <Run>-Check mark all 6 IVs for "Goal"</Run>
+                <LineBreak></LineBreak>
+                <Run>-Select "12.5%" for gender, "Ignore" for ability, and "Ignore" for shiny.z</Run>
+                <LineBreak></LineBreak>
+                <Run>-The results given will be the odds of hatching a 6IV female Charmander.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run>Note that the ability modifiers are kinda arbitrary because the mechanics of ability inheritance isn't fully known at this point (as far as I can tell).</Run> 
+                <LineBreak></LineBreak>
+                <Run>In Gen 5 a female had a 60% chance of passing its hidden ability and a 80% chance of passing down its normal ability. However, in this gen, males can pass down abilities as well.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run>For the shiny modifier:</Run>
+                <LineBreak></LineBreak>
+                <Run>1/4096 is the base shiny odds for generation 6+.</Run>
+                <LineBreak></LineBreak>
+                <Run>3/4096 is when having the </Run>
+                <Hyperlink NavigateUri="hbulbapedia.bulbagarden.net/wiki/Shiny_Charm"> Shiny Charm </Hyperlink>
+                <Run>item.</Run>
+                <LineBreak></LineBreak>
+                <Run>6/4096 is for the </Run>
+                <Hyperlink NavigateUri="https://bulbapedia.bulbagarden.net/wiki/Masuda_method">Matsuda method.</Hyperlink>
+                <LineBreak></LineBreak>
+                <Run>8/4096 is when having the Shiny Charm and using the Masuda Method.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">What about Power Items?</Run>
+                <LineBreak></LineBreak>
+                <Run>Power Items currently aren't supported. At the moment, the calculator just assumes you are using Destiny Knot + Everstone. Maybe in the future I'll add support for these items.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">What about breeding for a 0 IV?</Run>
+                <LineBreak></LineBreak>
+                <Run>Just treat it as a 31IV for that stat, the calculations will be the same.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run>For example, if you have Parent A: 31/31/31/x/x/0, Parent B: x/31/31/x/31/31, and want 31/31/31/x/31/0:</Run>
+                <LineBreak></LineBreak>
+                <Run>-Check the speed box for Parent A, but not Parent B.</Run>
+                <LineBreak></LineBreak>
+                <Run>-Check the speed box for Goal.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">Can this be helpful for RNG/soft-reset breeding?</Run>
+                <LineBreak></LineBreak>
+                <Run>This calculator isn't too helpful for RNG breeding, since RNG breeding is more about making the right combination when you already know what the IV inheritance is going to be like.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">How does this calculator work?</Run>
+                <LineBreak></LineBreak>
+                <Run>The following assumptions are made:</Run>
+                <LineBreak></LineBreak>
+                <Run>1. Using the Destiny Knot, 5IVs from both parents are always passed to the child. There is no such thing as "overlapping" that could cause only 3 or 4 to be passed.</Run>
+                <LineBreak></LineBreak>
+                <Run>2. Each passed IV has an equal chance of coming from Parent A or Parent B.</Run>
+                <LineBreak></LineBreak>
+                <Run>3. A random IV has a 1/32 chance of being perfect.</Run>
+                <LineBreak></LineBreak>
+                <Run>Using these assumptions, the calculator generates every possible IV spread scenario and counts how many times each IV spread would occur. The calculator then adds up the counts of the IV spreads that match the goal, and returns the results as a probability.</Run>
+                <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">Wait is this not the Calculator from</Run>
+                <Hyperlink NavigateUri="https://mkwrs.com/destiny_knot/faq.html">https://mkwrs.com/destiny_knot/faq.html?</Hyperlink>
+                <LineBreak></LineBreak>
+                <Run>Yes it is. This is a recreation of that original creator (with his permission), with the same functions</Run>
+                 <LineBreak></LineBreak>
+                <LineBreak></LineBreak>
+                <Run FontWeight="Bold">Contact info?</Run>
+                <LineBreak></LineBreak>
+                <Run>If you want to make a suggestion/bug report/comment about the site and the original calculator, send a message on to original creator on Twitter</Run>
+                <Hyperlink NavigateUri="https://twitter.com/colekart">@colekart</Hyperlink>
+                <LineBreak></LineBreak>
+                <Run>If you want to make a suggestion/bug report/comment about the application, visit </Run>
+                <Hyperlink NavigateUri="https://github.com/ThunderSpark91/Pokemon-IV-Breeding-Probability-Calculator"> my github</Hyperlink>
+                <Run>and post an isue over there.</Run>
+                <LineBreak></LineBreak>
+                <Run>Want to contact me directly? Then send a mail to</Run>
+                <Hyperlink NavigateUri="joerie.judong@gmail.com">joerie.judong@gmail.com</Hyperlink>
+                <Run>Copyright (c) 2020 by JigglyPuffy (https://codepen.io/JigglyPuffy/pen/OXaPag)
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </Run>
+                <Run></Run>
+            </TextBlock>
+        </StackPanel>
+
+    </Grid>
+</Window>

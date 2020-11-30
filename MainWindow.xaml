@@ -1,0 +1,112 @@
+﻿<Window x:Class="Pokemon_IV_Breeding_Probability_Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokemon_IV_Breeding_Probability_Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="1080" Width="1920">
+    <Grid>
+        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
+            <MenuItem Header="Calculator" Height="20" Width="80" IsEnabled="False"/>
+            <MenuItem Header="FAQ" Height="20" Width="40"/>
+            <MenuItem Header="Close" Height="20" Width="80"/>
+        </Menu>
+
+        <WrapPanel HorizontalAlignment="Left" Height="20" Margin="200,95,0,0" VerticalAlignment="Top" Width="185"/>
+        <StackPanel HorizontalAlignment="Left" Height="238" Margin="130,81,0,0" VerticalAlignment="Top" Width="780">
+            <WrapPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="200">
+                <Label x:Name="lbl_HP" Content="HP" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="32"/>
+                <Label x:Name="lbl_Atk" Content="Atk" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="32"/>
+                <Label x:Name="lbl_Def" Content="Def" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="32"/>
+                <Label x:Name="lbl_SpA" Content="SpA" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="32"/>
+                <Label x:Name="lbl_spD" Content="SpD" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="32"/>
+                <Label x:Name="lbl_Spd" Content="Spd" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="40"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="200">
+                <CheckBox x:Name="chkPA_HP" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.625,0.5" ToolTip=""/>
+                <CheckBox x:Name="chkPA_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkPA_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkPA_SPECIAL_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkPA_SPECIAL_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkPA_SPEED" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="200">
+                <CheckBox x:Name="chkPB_HP" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkPB_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkPB_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkPB_SPECIAL_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkPB_SPECIAL_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkPB_SPEED" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="200">
+                <CheckBox x:Name="chkGOAL_HP" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkGOAL_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkGOAL_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
+                <CheckBox x:Name="chkGOAL_SPECIAL_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkGOAL_SPECIAL_DEFENSE1" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkGOAL_SPEED" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="440">
+                <Label x:Name="lbl_GENDER" Content="Gender" Height="40" Width="80"/>
+                <Label x:Name="lbl_Ability" Content="Ability" Height="40" Width="80"/>
+                <Label x:Name="lbl_Shiny" Content="Shiny" Height="40" Width="259"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="775">
+                <ComboBox x:Name="cboGender" Height="40" Width="80"/>
+                <ComboBox x:Name="cboAbility" Height="40" Width="80"/>
+                <ComboBox x:Name="cboShiny" Height="40" Width="460"/>
+                <TextBox x:Name="txtmodifier" Height="40" TextWrapping="Wrap" Width="155" IsEnabled="False"/>
+            </WrapPanel>
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="200" Margin="30,120,0,0" VerticalAlignment="Top" Width="95">
+            <Label x:Name="lbl_Parent_A" Content="Parent A" HorizontalAlignment="Left" Height="30" Width="60"/>
+            <Label x:Name="lbl_Parent_B" Content="Parent B" HorizontalAlignment="Left" Height="30" Width="60"/>
+            <Label x:Name="lbl_GOAL" Content="Goal" HorizontalAlignment="Left" Height="30" Width="60"/>
+            <Label x:Name="lbl_Modifiers" Content="Modifiers" HorizontalAlignment="Left" Height="35" Width="60"/>
+            <Button x:Name="btnCalculate" Content="Calculate" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="95" Click="btnCalculate_Click" ToolTip="Click here to calculate!" Margin="0,5"/>
+            <Button x:Name="btnreset" Content="Reset" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="95" Click="btnreset_Click" ToolTip="Click here to reset the entire app!"/>
+        </StackPanel>
+        <StatusBar HorizontalAlignment="Left" Height="79" Margin="1437,960,0,0" VerticalAlignment="Top" Width="475"/>
+        <GroupBox x:Name="gpbResults" Header="" HorizontalAlignment="Left" Height="640" Margin="20,320,0,0" VerticalAlignment="Top" Width="879" BorderBrush="Gray">
+            <WrapPanel HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="880">
+                <StackPanel HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="800">
+                    <TextBox x:Name="txtPreresults" HorizontalAlignment="Left" Height="75" TextWrapping="Wrap" Text="" Width="800" IsEnabled="False"/>
+                    <Label x:Name="label" Content="Chance of hatching Goal within X number of Eggs: " HorizontalAlignment="Left" Height="40" Width="800"/>
+                    <DataGrid x:Name="DgdEggchance" Height="50" Margin="0,0,640,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Eggs" Binding="{Binding Eggs}"/>
+                            <DataGridTextColumn Header="Chance" Binding="{Binding Chance}"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <Label x:Name="lbl_OddsPIV" Content="Odds of getting X number of IV's" HorizontalAlignment="Left" Height="33" Width="800"/>
+                    <DataGrid x:Name="DgdEggchance_Copy" Height="50" Margin="0,0,560,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="IVs" Binding="{Binding IVs}"/>
+                            <DataGridTextColumn Header="Without Modfiers" Binding="{Binding Modifiers}"/>
+                            <DataGridTextColumn Header="With Modifiers" Binding="{Binding Without_Modifiers}"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <TextBox x:Name="txtExpectedIVs" Height="23" TextWrapping="Wrap" Text=""/>
+                    <Label x:Name="lbl_IVSpreaddistrubutions" Content="IV Spread Distrubution (no modifiers) "/>
+                    <DataGrid x:Name="DgdEggchance_Copy1" Height="50" Margin="0,0,401,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header=" IV Spread " Binding="{Binding IV_Spread}"/>
+                            <DataGridTextColumn Header="Chance" Binding="{Binding Chance}"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+        <Image x:Name="Destinyknot_Image" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="55" Source="Destiny_Knot.png"/>
+        <Label x:Name="lbl_Pokemon_IVBreeding_Probability_Calculator" Content="Pokemon IV Breeding Probability Calculator C# Edition" HorizontalAlignment="Left" Margin="80,21,0,0" VerticalAlignment="Top" Width="725" Height="60" FontWeight="Bold" FontSize="20" AutomationProperties.HelpText="This is the titel" HorizontalContentAlignment="Center"/>
+        <Image x:Name="Egg_Image" HorizontalAlignment="Left" Height="59" Margin="810,21,0,0" VerticalAlignment="Top" Width="70" Source="Egg.png"/>
+
+
+    </Grid>
+</Window>

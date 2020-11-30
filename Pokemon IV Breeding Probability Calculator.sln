@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokemon IV Breeding Probability Calculator", "Pokemon IV Breeding Probability Calculator.csproj", "{6243EBAD-4196-49A4-893C-62F1CF01FDE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6243EBAD-4196-49A4-893C-62F1CF01FDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6243EBAD-4196-49A4-893C-62F1CF01FDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6243EBAD-4196-49A4-893C-62F1CF01FDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6243EBAD-4196-49A4-893C-62F1CF01FDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D9783C0-9969-4B41-A460-BFCD170963B7}
+	EndGlobalSection
+EndGlobal
