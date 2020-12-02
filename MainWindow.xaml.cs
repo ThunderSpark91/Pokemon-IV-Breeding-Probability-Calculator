@@ -74,7 +74,13 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
             modAbility = ability[cboAbility.SelectedIndex];
             modShiny = shiny[cboShiny.SelectedIndex];
             totalmodifier = modGender * modAbility * modShiny;
-            txtPreresults.Text = "Breeding parents " + "x/x/x/x/x/x " + "and " + "x/x/x/x/x/x ";
+
+
+            txtPreresults.Text = "Breeding parents ";
+
+            txtPreresults.Text += "x/x/x/x/x/x" + "and ";
+            txtPreresults.Text += "x/x/x/x/x/x";
+
             if (totalmodifier < 1)
             {
                 txtmodifier.Text = Convert.ToString(totalmodifier * 100) + "%";
@@ -85,6 +91,8 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
                 txtmodifier.Text = "No modifier";
                 txtPreresults.Text += Environment.NewLine;
             }
+
+
             txtPreresults.Text += "will produce " + "x/x/x/x " + "Pokemon " + "Placeholder" + "%" + " of the time or " + "1 out of every " + totalnumberofeggs.ToString() + " Eggs!";
             txtExpectedIVs.Text = "Expected number of perfect IVs: " + "Placeholder value" + "%";
     }

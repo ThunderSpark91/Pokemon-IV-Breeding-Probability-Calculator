@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Eggs_Chance.cs" />
+    <Compile Include="IVSpread text.cs" />
     <Compile Include="WpfFAQ.xaml.cs">
       <DependentUpon>WpfFAQ.xaml</DependentUpon>
     </Compile>

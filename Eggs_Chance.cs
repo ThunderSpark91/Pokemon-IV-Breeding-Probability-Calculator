@@ -8,9 +8,9 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
 {
     public class Eggs_Chance
     {
-        private int Eggs;
+        private double Eggs;
 
-        public int mEggs
+        public double mEggs
         {
             get { return Eggs; }
             set { Eggs = value; }
@@ -23,6 +23,7 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
             get { return Chance; }
             set { Chance = value; }
         }
+
 
 
     }

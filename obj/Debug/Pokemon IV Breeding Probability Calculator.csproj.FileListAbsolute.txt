@@ -1,0 +1,6 @@
+D:\Programmeer portfolio\Programma's\WPFS\Pokémon Projects\Pokemon-IV-Breeding-Probability-Calculator\obj\Debug\Pokemon IV Breeding Probability Calculator.csprojAssemblyReference.cache
+D:\Programmeer portfolio\Programma's\WPFS\Pokémon Projects\Pokemon-IV-Breeding-Probability-Calculator\obj\Debug\MainWindow.g.cs
+D:\Programmeer portfolio\Programma's\WPFS\Pokémon Projects\Pokemon-IV-Breeding-Probability-Calculator\obj\Debug\WpfFAQ.g.cs
+D:\Programmeer portfolio\Programma's\WPFS\Pokémon Projects\Pokemon-IV-Breeding-Probability-Calculator\obj\Debug\App.g.cs
+D:\Programmeer portfolio\Programma's\WPFS\Pokémon Projects\Pokemon-IV-Breeding-Probability-Calculator\obj\Debug\Pokemon IV Breeding Probability Calculator_MarkupCompile.cache
+D:\Programmeer portfolio\Programma's\WPFS\Pokémon Projects\Pokemon-IV-Breeding-Probability-Calculator\obj\Debug\Pokemon IV Breeding Probability Calculator_MarkupCompile.lref
