@@ -55,8 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Eggs_Chance.cs" />
-    <Compile Include="IVSpread text.cs" />
+    <Compile Include="Classes\Eggs_Chance.cs" />
+    <Compile Include="Classes\IIndividualValue.cs" />
+    <Compile Include="Classes\IVSpread text.cs" />
     <Compile Include="WpfFAQ.xaml.cs">
       <DependentUpon>WpfFAQ.xaml</DependentUpon>
     </Compile>
@@ -116,5 +117,6 @@
   <ItemGroup>
     <Resource Include="Egg.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

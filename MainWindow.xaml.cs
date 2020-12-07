@@ -25,6 +25,7 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
         private string[] strshiny = { "Ignore", "1/4096 Base Chance", "3/4096 Shiny Charm", "6/4096 Matsuda Method", "8/4096 Shiny Charm + Matsuda Method" };
         private double[] gender = { 1, 0.125, 0.25, 0.50, 0.75, 0.875 };
         private double[] ability = { 1, 0.20, 0.40, 0.60, 0.80};
+
         private double[] shiny = { 1, 0.000244140625, 0.000732421875, 0.00146484375, 0.001953125};
         double modGender;
         double modAbility;
@@ -77,9 +78,11 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
 
 
             txtPreresults.Text = "Breeding parents ";
+            IVSpread_text IVSPREADA = new IVSpread_text(Convert.ToBoolean(chkPA_HP.IsChecked), Convert.ToBoolean(chkPA_ATTACK.IsChecked), Convert.ToBoolean(chkPA_DEFENSE.IsChecked), Convert.ToBoolean(chkPA_SPECIAL_ATTACK.IsChecked), Convert.ToBoolean(chkPA_SPECIAL_DEFENSE.IsChecked), Convert.ToBoolean(chkPA_SPEED.IsChecked));
+            IVSpread_text IVSPREADB = new IVSpread_text(Convert.ToBoolean(chkPB_HP.IsChecked), Convert.ToBoolean(chkPB_ATTACK.IsChecked), Convert.ToBoolean(chkPB_DEFENSE.IsChecked), Convert.ToBoolean(chkPB_SPECIAL_ATTACK.IsChecked), Convert.ToBoolean(chkPB_SPECIAL_DEFENSE.IsChecked), Convert.ToBoolean(chkPB_SPEED.IsChecked));
+            IVSpread_text IVSPREADGOAL = new IVSpread_text(Convert.ToBoolean(chkGOAL_HP.IsChecked), Convert.ToBoolean(chkGOAL_ATTACK.IsChecked), Convert.ToBoolean(chkGOAL_DEFENSE.IsChecked), Convert.ToBoolean(chkGOAL_SPECIAL_ATTACK.IsChecked), Convert.ToBoolean(chkGOAL_SPECIAL_DEFENSE.IsChecked), Convert.ToBoolean(chkGOAL_SPEED.IsChecked));
+            txtPreresults.Text += IVSPREADA.IVSPREAD() + " and " + IVSPREADB.IVSPREAD();
 
-            txtPreresults.Text += "x/x/x/x/x/x" + "and ";
-            txtPreresults.Text += "x/x/x/x/x/x";
 
             if (totalmodifier < 1)
             {
@@ -93,7 +96,17 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
             }
 
 
-            txtPreresults.Text += "will produce " + "x/x/x/x " + "Pokemon " + "Placeholder" + "%" + " of the time or " + "1 out of every " + totalnumberofeggs.ToString() + " Eggs!";
+            txtPreresults.Text += "will produce " + IVSPREADGOAL.IVSPREAD() + "Pokemon ";
+            txtPreresults.Text += "Placeholder";
+            txtPreresults.Text += "%" + " of the time or " + "1 out of every " + totalnumberofeggs.ToString() + " Eggs!";
+            List<Eggs_Chance> eggs_chance = new List<Eggs_Chance>();
+            eggs_chance.Add(new Eggs_Chance() { Eggs = 1, Chance = 0.5 });
+
+            DgdEggchance.ItemsSource = eggs_chance;
+
+
+
+
             txtExpectedIVs.Text = "Expected number of perfect IVs: " + "Placeholder value" + "%";
     }
 
@@ -105,5 +118,7 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
             cboAbility.SelectedIndex = 0;
             cboShiny.SelectedIndex = 0;
         }
+
+        
     }
 }

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pokemon_IV_Breeding_Probability_Calculator"
         mc:Ignorable="d"
-        Title="Calculator" Height="1080" Width="1920">
-    <Grid>
-        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
+        Title="Calculator" Height="1080" Width="1920" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+    <Grid Margin="0,0,2,-3">
+        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top" Margin="0,0,-2,0" ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <MenuItem Header="Calculator" Height="20" Width="80" IsEnabled="False"/>
             <MenuItem Header="FAQ" Height="20" Width="40"/>
             <MenuItem Header="Close" Height="20" Width="80"/>
@@ -44,7 +44,7 @@
                 <CheckBox x:Name="chkGOAL_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
                 <CheckBox x:Name="chkGOAL_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32"/>
                 <CheckBox x:Name="chkGOAL_SPECIAL_ATTACK" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
-                <CheckBox x:Name="chkGOAL_SPECIAL_DEFENSE1" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
+                <CheckBox x:Name="chkGOAL_SPECIAL_DEFENSE" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
                 <CheckBox x:Name="chkGOAL_SPEED" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0.5"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="440">
@@ -68,21 +68,17 @@
             <Button x:Name="btnCalculate" Content="Calculate" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="95" Click="btnCalculate_Click" ToolTip="Click here to calculate!" Margin="0,5"/>
             <Button x:Name="btnreset" Content="Reset" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="95" Click="btnreset_Click" ToolTip="Click here to reset the entire app!"/>
         </StackPanel>
-        <StatusBar HorizontalAlignment="Left" Height="79" Margin="1437,960,0,0" VerticalAlignment="Top" Width="475"/>
-        <GroupBox x:Name="gpbResults" Header="" HorizontalAlignment="Left" Height="640" Margin="20,320,0,0" VerticalAlignment="Top" Width="879" BorderBrush="Gray">
-            <WrapPanel HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="880">
-                <StackPanel HorizontalAlignment="Left" Height="635" VerticalAlignment="Top" Width="800">
-                    <TextBox x:Name="txtPreresults" HorizontalAlignment="Left" Height="75" TextWrapping="Wrap" Text="" Width="800" IsEnabled="False"/>
+        <StatusBar HorizontalAlignment="Left" Height="79" Margin="1435,973,0,0" VerticalAlignment="Top" Width="475"/>
+        <GroupBox x:Name="gpbResults" Header="" HorizontalAlignment="Left" Margin="20,320,0,-128" Width="879" BorderBrush="Gray">
+            <WrapPanel HorizontalAlignment="Left" Height="805" VerticalAlignment="Top" Width="880" Margin="0,0,-13,-188">
+                <StackPanel HorizontalAlignment="Left" Height="943" VerticalAlignment="Top" Width="800">
+                    <TextBox x:Name="txtPreresults" HorizontalAlignment="Left" Height="75" TextWrapping="Wrap" Text="" Width="534" IsEnabled="False"/>
                     <Label x:Name="label" Content="Chance of hatching Goal within X number of Eggs: " HorizontalAlignment="Left" Height="40" Width="800"/>
-                    <DataGrid x:Name="DgdEggchance" Height="50" Margin="0,0,640,0">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Eggs" Binding="{Binding Eggs}"/>
-                            <DataGridTextColumn Header="Chance" Binding="{Binding Chance}"/>
-                        </DataGrid.Columns>
+                    <DataGrid x:Name="DgdEggchance" Height="113" Margin="0,0,640,0">
 
                     </DataGrid>
                     <Label x:Name="lbl_OddsPIV" Content="Odds of getting X number of IV's" HorizontalAlignment="Left" Height="33" Width="800"/>
-                    <DataGrid x:Name="DgdEggchance_Copy" Height="50" Margin="0,0,560,0">
+                    <DataGrid x:Name="DgdnumberIVSodds" Height="172">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="IVs" Binding="{Binding IVs}"/>
                             <DataGridTextColumn Header="Without Modfiers" Binding="{Binding Modifiers}"/>
@@ -92,7 +88,7 @@
                     </DataGrid>
                     <TextBox x:Name="txtExpectedIVs" Height="23" TextWrapping="Wrap" Text=""/>
                     <Label x:Name="lbl_IVSpreaddistrubutions" Content="IV Spread Distrubution (no modifiers) "/>
-                    <DataGrid x:Name="DgdEggchance_Copy1" Height="50" Margin="0,0,401,0">
+                    <DataGrid x:Name="DgdIVSpreadDistrubtionChance" Height="221" Margin="0,0,401,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header=" IV Spread " Binding="{Binding IV_Spread}"/>
                             <DataGridTextColumn Header="Chance" Binding="{Binding Chance}"/>
