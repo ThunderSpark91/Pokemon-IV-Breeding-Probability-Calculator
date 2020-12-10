@@ -7,6 +7,9 @@ See the Wiki (in progress for more information).
 What I learned:
 **In progress**
 -How to use clases to fill in Datagrids.
+-How to use classes to create custom Functions and make value's go trhough them.
+-How to translate different format of value's into another format.
+
 
 -How to translate different value's into different string formats
 -
