@@ -27,11 +27,13 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
         private double[] ability = { 1, 0.20, 0.40, 0.60, 0.80};
 
         private double[] shiny = { 1, 0.000244140625, 0.000732421875, 0.00146484375, 0.001953125};
+        private double[] Aegg = { 1, 5, 10, 30, 50, 100, 200, 500, 1000 };
         double modGender;
         double modAbility;
         double modShiny;
         double totalmodifier;
         double totalnumberofeggs = 1;
+        double Probability_Out_Of_Eggs = 1;
 
 
         public MainWindow()
@@ -99,13 +101,27 @@ namespace Pokemon_IV_Breeding_Probability_Calculator
             txtPreresults.Text += "will produce " + IVSPREADGOAL.IVSPREAD() + "Pokemon ";
             txtPreresults.Text += "Placeholder";
             txtPreresults.Text += "%" + " of the time or " + "1 out of every " + totalnumberofeggs.ToString() + " Eggs!";
-            List<Eggs_Chance> eggs_chance = new List<Eggs_Chance>();
-            eggs_chance.Add(new Eggs_Chance() { Eggs = 1, Chance = 0.5 });
+            List <Eggs_Chance> listeggschance = new List<Eggs_Chance>();
 
-            DgdEggchance.ItemsSource = eggs_chance;
+            for (int i = 0; i < Aegg.Length; i++)
+            {
+                double doublechance = Aegg[i] * Probability_Out_Of_Eggs;
+                string stringchance;
 
+                if (doublechance > 1)
+                {
+                    stringchance = "~100%";
+                }
+                else
+                {
+                    stringchance = Convert.ToString(doublechance * 100) + "%";
+                }
 
-
+                listeggschance.Add(new Eggs_Chance() { Eggs = Aegg[i], Percentage = stringchance });
+            }
+            DgdEggchance.ItemsSource = listeggschance;
+            
+           
 
             txtExpectedIVs.Text = "Expected number of perfect IVs: " + "Placeholder value" + "%";
     }

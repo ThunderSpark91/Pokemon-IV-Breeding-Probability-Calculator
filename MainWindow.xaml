@@ -69,12 +69,13 @@
             <Button x:Name="btnreset" Content="Reset" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="95" Click="btnreset_Click" ToolTip="Click here to reset the entire app!"/>
         </StackPanel>
         <StatusBar HorizontalAlignment="Left" Height="79" Margin="1435,973,0,0" VerticalAlignment="Top" Width="475"/>
-        <GroupBox x:Name="gpbResults" Header="" HorizontalAlignment="Left" Margin="20,320,0,-128" Width="879" BorderBrush="Gray">
-            <WrapPanel HorizontalAlignment="Left" Height="805" VerticalAlignment="Top" Width="880" Margin="0,0,-13,-188">
-                <StackPanel HorizontalAlignment="Left" Height="943" VerticalAlignment="Top" Width="800">
+        <ScrollViewer x:Name="SCRVResults">
+        <GroupBox x:Name="gpbResults" Header="" HorizontalAlignment="Left" Margin="20,320,0,-128" Width="879" BorderBrush="Gray" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+            <WrapPanel HorizontalAlignment="Left" Height="1115" VerticalAlignment="Top" Width="880" Margin="0,0,-13,-278" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                <StackPanel HorizontalAlignment="Left" Height="1103" VerticalAlignment="Top" Width="800" ScrollViewer.CanContentScroll="True" CanVerticallyScroll="True">
                     <TextBox x:Name="txtPreresults" HorizontalAlignment="Left" Height="75" TextWrapping="Wrap" Text="" Width="534" IsEnabled="False"/>
                     <Label x:Name="label" Content="Chance of hatching Goal within X number of Eggs: " HorizontalAlignment="Left" Height="40" Width="800"/>
-                    <DataGrid x:Name="DgdEggchance" Height="113" Margin="0,0,640,0">
+                    <DataGrid x:Name="DgdEggchance" Height="163" Margin="0,0,640,0">
 
                     </DataGrid>
                     <Label x:Name="lbl_OddsPIV" Content="Odds of getting X number of IV's" HorizontalAlignment="Left" Height="33" Width="800"/>
@@ -98,10 +99,14 @@
 
                 </StackPanel>
             </WrapPanel>
+        
         </GroupBox>
+        </ScrollViewer>
+
         <Image x:Name="Destinyknot_Image" HorizontalAlignment="Left" Height="60" Margin="20,20,0,0" VerticalAlignment="Top" Width="55" Source="Destiny_Knot.png"/>
         <Label x:Name="lbl_Pokemon_IVBreeding_Probability_Calculator" Content="Pokemon IV Breeding Probability Calculator C# Edition" HorizontalAlignment="Left" Margin="80,21,0,0" VerticalAlignment="Top" Width="725" Height="60" FontWeight="Bold" FontSize="20" AutomationProperties.HelpText="This is the titel" HorizontalContentAlignment="Center"/>
         <Image x:Name="Egg_Image" HorizontalAlignment="Left" Height="59" Margin="810,21,0,0" VerticalAlignment="Top" Width="70" Source="Egg.png"/>
+
 
 
     </Grid>
