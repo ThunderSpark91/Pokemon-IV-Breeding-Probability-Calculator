@@ -5,8 +5,14 @@ See the Wiki (in progress for more information).
 
 
 What I learned:
+
 **In progress**
+
 -How to use clases to fill in Datagrids.
 
--How to translate different value's into different string formats
--
+-How to use classes to create custom Functions and make value's go through them.
+
+-How to translate different format of value's into another format.
+
+
+
