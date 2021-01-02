@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Classes"
   ],
-  "SelectedNode": "\\Pokemon IV Breeding Probability Calculator.sln",
+  "SelectedNode": "\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }
